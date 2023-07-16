@@ -20,4 +20,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:hint="email"
+        android:id="@+id/email"
+        app:layout_constraintTop_toBottomOf="@id/button_notifications"
+        android:layout_height="44dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
