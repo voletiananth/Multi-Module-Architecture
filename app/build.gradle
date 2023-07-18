@@ -33,6 +33,7 @@ android {
     }
     buildFeatures {
         viewBinding true
+        dataBinding true
     }
 }
 
@@ -41,6 +42,8 @@ dependencies {
     implementation project(':home')
     implementation project(':notifications')
     implementation project(':details')
+    implementation project(':login')
+    implementation(project(':token_manager'))
 
     implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'

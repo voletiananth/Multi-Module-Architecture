@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="loginViewModel"
+            type="com.voleti.login.LoginViewModel" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:hint="Email"
+        android:text="@={loginViewModel.email}"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/login_btn"
+        android:layout_height="48dp"
+        />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/login_btn"
+        android:layout_width="match_parent"
+        android:text="Login"
+        android:enabled="@{loginViewModel.isEmailValid}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

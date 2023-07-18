@@ -9,5 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="com.voleti.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <argument android:name="data" app:argType="string" app:nullable="true" android:defaultValue=""/>
+    </fragment>
 </navigation>

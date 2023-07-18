@@ -4,16 +4,26 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import com.voleti.details.DetailsFragmentDirections
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.voleti.home.databinding.FragmentHomeBinding
 import com.voleti.navigation.MobileNavigationDirections
+import com.voleti.token_manager.TokenManager
 
 class HomeFragment : Fragment() {
 
+    private val args: HomeFragmentArgs by navArgs()
+
+    private val tokenManager: TokenManager by lazy {
+        TokenManager(requireContext())
+    }
+
+    private val viewModel: HomeViewModel by lazy {
+        ViewModelProvider(this)[HomeViewModel::class.java]
+    }
     private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
@@ -22,6 +32,9 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding.args = args
+        binding.tokenManager = tokenManager
+        binding.lifecycleOwner = this
         return binding.root
     }
 
@@ -31,6 +44,12 @@ class HomeFragment : Fragment() {
             val action = MobileNavigationDirections.actionToDetailsFragment("Hello from Home Fragment")
             Navigation.findNavController(it).navigate(action)
         }
+
+        binding.signOutButton.setOnClickListener {
+            tokenManager.deleteToken()
+            findNavController().navigate(MobileNavigationDirections.actionToLoginFragment())
+        }
+
     }
 
 }

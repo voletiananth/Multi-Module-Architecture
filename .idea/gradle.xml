@@ -14,8 +14,10 @@
             <option value="$PROJECT_DIR$/dashboard" />
             <option value="$PROJECT_DIR$/details" />
             <option value="$PROJECT_DIR$/home" />
+            <option value="$PROJECT_DIR$/login" />
             <option value="$PROJECT_DIR$/navigation" />
             <option value="$PROJECT_DIR$/notifications" />
+            <option value="$PROJECT_DIR$/token_manager" />
           </set>
         </option>
       </GradleProjectSettings>
